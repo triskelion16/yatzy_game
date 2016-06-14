@@ -1,18 +1,20 @@
-.footer {
-    flex: 0 0 40px;
-    border-top: 2px solid $main_color;
-    padding: 10px;
-    background-color: rgba(218,165,32, 0.1);
+footer {
+    background-color: #000;
+    height: 40px;
+    color: #aaa;
+    padding-top: 7px;
     
-}
+    section {
+        justify-content: center;
+    }
+    
+    span {
+        padding: 5px;
+    }
 
-.footer > span {
-    float: left;
-    color: #aaa;
-}
-
-.footer > a {
-    text-decoration: none;
-    float: right;
-    color: #aaa;
+    img {
+        background-color: #aaa;
+        border-radius: 50%;
+        border: 1px solid #aaa;
+    }
 }

@@ -1,17 +1,40 @@
-.header {
-    /*flex: 0 0 80px;*/
-    //width: 100vw;
-    height: 8vh;
-    border-bottom: 2px solid $main_color;
-    background-color: rgba(218,165,32, 0.1);
+header {
+    background-color: #000;
+    height: 60px;
+    
+    div {
+        position: relative;
+        padding-top: 10px;
+        justify-content: center;
+    }
 }
 
-.header > h1 {
-    color: $main_color;
-    font-size: 3em;
+.title {
+    color: #fff;
+    font-size: 30px;
     text-transform: uppercase;
-    letter-spacing: .2rem;
-    text-align: center;
-    margin-top: 5px;
-    text-shadow: 1px 1px #ddd;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hide_rules {
+    position: absolute;
+    bottom: -27px;
+    left: 0;
+    background-color: rgba(0,0,0, .4);
+    height: 18px;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #000;
+    
+    .arrow {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 16px 50px 0 50px;
+        border-color: #000000 transparent transparent transparent;
+        
+        top: -10px;
+        margin: 0 auto;
+    }
 }

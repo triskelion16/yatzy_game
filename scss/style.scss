@@ -2,7 +2,7 @@
 @import 'modules/all';
 
 // Partials
-@import 'partials/reset';
+//@import 'partials/reset';
 @import 'partials/header';
 @import 'partials/footer';
 @import 'partials/main';
@@ -10,23 +10,22 @@
 
 
 // Base style
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic&subset=latin,latin-ext);
+
 body {
-    @include background;
-    /*@include flexbox;
-    flex-direction: column;*/
+    margin: 0;
+    font-family: 'Open sans', Verdena, sans-serif;
 }
 
-.gold_border {
+.main_width {
     @include flexbox;
-    flex-direction: column;
-    width: 90vw;
-    border: 2px solid $main_color;
-    border-radius: 10px;
-    margin: 50px auto;
+    width: 100vw;;
+    margin: 0 auto;
+    //border: 1px solid red;
 }
 
-@media(min-width: 900px) {
-    .gold_border {
+@media(min-width: 800px) {
+    .main_width {
         width: 800px;
     }
 }
@@ -35,6 +34,11 @@ body {
     box-sizing: border-box;
 }
 
-.section {
-    display: flex;
+.main_container {
+    //@include background;
+    background-image: url('../images/bg_main.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100vw;
 }
