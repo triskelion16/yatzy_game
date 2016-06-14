@@ -4,3 +4,9 @@
     display: -moz-box;
     display: -webkit-flex;
 }
+
+@mixin background {
+    background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    height: 100vh;
+}

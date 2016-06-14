@@ -2,9 +2,39 @@
 @import 'modules/all';
 
 // Partials
+@import 'partials/reset';
+@import 'partials/header';
+@import 'partials/footer';
+@import 'partials/main';
+@import 'partials/aside';
 
 
 // Base style
 body {
-    background-color: lightgrey;
+    @include background;
+    /*@include flexbox;
+    flex-direction: column;*/
+}
+
+.gold_border {
+    @include flexbox;
+    flex-direction: column;
+    width: 90vw;
+    border: 2px solid $main_color;
+    border-radius: 10px;
+    margin: 50px auto;
+}
+
+@media(min-width: 900px) {
+    .gold_border {
+        width: 800px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.section {
+    display: flex;
 }

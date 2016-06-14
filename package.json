@@ -1,0 +1,23 @@
+{
+  "name": "yatzy_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triskelion16/yatzy_game.git"
+  },
+  "keywords": [
+    "yatzy",
+    "5dice"
+  ],
+  "author": "Sebastian Solecki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/triskelion16/yatzy_game/issues"
+  },
+  "homepage": "https://github.com/triskelion16/yatzy_game#readme"
+}

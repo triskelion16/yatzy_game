@@ -1,0 +1,17 @@
+.header {
+    /*flex: 0 0 80px;*/
+    //width: 100vw;
+    height: 8vh;
+    border-bottom: 2px solid $main_color;
+    background-color: rgba(218,165,32, 0.1);
+}
+
+.header > h1 {
+    color: $main_color;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    margin-top: 5px;
+    text-shadow: 1px 1px #ddd;
+}

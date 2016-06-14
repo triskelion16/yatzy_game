@@ -1,0 +1,18 @@
+.footer {
+    flex: 0 0 40px;
+    border-top: 2px solid $main_color;
+    padding: 10px;
+    background-color: rgba(218,165,32, 0.1);
+    
+}
+
+.footer > span {
+    float: left;
+    color: #aaa;
+}
+
+.footer > a {
+    text-decoration: none;
+    float: right;
+    color: #aaa;
+}
