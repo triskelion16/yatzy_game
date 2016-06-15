@@ -1,0 +1,29 @@
+aside {
+    width: 50%;
+    
+    table {
+        border: 2px solid red;
+        border-radius: 10px 10px 10px 10px;
+        background-color: rgba(0,0,0, .6);
+        font-size: 1.2em;
+        color: #fff;
+        margin: 2rem 2rem;
+        
+        tbody {
+            border-collapse: collapse;
+            
+        }
+        
+        tr:hover {
+            background-color: rgba(0,0,0, .4);
+        }
+    }
+    
+    td {
+        //border: 1px solid red;
+        width: 8em;
+        text-align: center;
+        padding: .3em;
+        font-weight: bold
+    }
+}

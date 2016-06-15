@@ -1,0 +1,42 @@
+main {
+    width: 50%;
+    
+    .main_dice {
+        display: flex;
+        border: 2px solid red;
+        border-radius: 10px 10px 10px 10px;
+        background-color: rgba(0,0,0, .6);
+        margin: 2rem 2rem;
+        height: 55vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        
+        .box {
+            height: 70px;
+            width: 70px;
+            background-color: aliceblue;
+            border: 1px solid red;
+        }
+    }
+    
+    .main_button {
+        display: flex;
+        justify-content: center;
+        
+        button {
+            padding: 10px 30px;
+            background-color: rgba(255,255,255, .8);
+            color: #000;
+            border: 2px solid red;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            
+            &:hover {
+                background-color: rgba(255,0,0, .3);
+            }
+        }
+    }
+}

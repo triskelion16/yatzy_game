@@ -35,10 +35,9 @@ body {
 }
 
 .main_container {
-    //@include background;
-    background-image: url('../images/bg_main.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 80vh;
+    @include background;
+    display: flex;
+    //height: 80vh;
     width: 100vw;
+    border: 1px solid #000;
 }

@@ -16,13 +16,16 @@ header {
 
 .hide_rules {
   position: absolute;
-  bottom: -27px;
+  bottom: -26px;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   height: 18px;
   width: 100%;
-  border-radius: 0 0 5px 5px;
-  border: 1px solid #000; }
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #fff;
+  border-top: none; }
+  .hide_rules:hover {
+    background-color: rgba(255, 255, 255, 0.5); }
   .hide_rules .arrow {
     width: 0;
     height: 0;
@@ -46,6 +49,57 @@ footer {
     border-radius: 50%;
     border: 1px solid #aaa; }
 
+main {
+  width: 50%; }
+  main .main_dice {
+    display: flex;
+    border: 2px solid red;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 2rem 2rem;
+    height: 55vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
+    main .main_dice .box {
+      height: 70px;
+      width: 70px;
+      background-color: aliceblue;
+      border: 1px solid red; }
+  main .main_button {
+    display: flex;
+    justify-content: center; }
+    main .main_button button {
+      padding: 10px 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
+      border: 2px solid red;
+      border-radius: 5px 5px 5px 5px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase; }
+      main .main_button button:hover {
+        background-color: rgba(255, 0, 0, 0.3); }
+
+aside {
+  width: 50%; }
+  aside table {
+    border: 2px solid red;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 1.2em;
+    color: #fff;
+    margin: 2rem 2rem; }
+    aside table tbody {
+      border-collapse: collapse; }
+    aside table tr:hover {
+      background-color: rgba(0, 0, 0, 0.4); }
+  aside td {
+    width: 8em;
+    text-align: center;
+    padding: .3em;
+    font-weight: bold; }
+
 body {
   margin: 0;
   font-family: 'Open sans', Verdena, sans-serif; }
@@ -53,7 +107,6 @@ body {
 .main_width {
   display: flex;
   display: -webkit-box;
-  display: -moz-box;
   display: -webkit-flex;
   width: 100vw;
   margin: 0 auto; }
@@ -69,7 +122,8 @@ body {
   background-image: url("../images/bg_main.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
-  width: 100vw; }
+  display: flex;
+  width: 100vw;
+  border: 1px solid #000; }
 
 /*# sourceMappingURL=style.css.map */
