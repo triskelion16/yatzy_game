@@ -61,11 +61,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-around; }
-    main .main_dice .box {
-      height: 70px;
-      width: 70px;
-      background-color: aliceblue;
-      border: 1px solid red; }
   main .main_button {
     display: flex;
     justify-content: center; }
@@ -78,8 +73,57 @@ main {
       font-size: 1.3rem;
       font-weight: bold;
       text-transform: uppercase; }
-      main .main_button button:hover {
-        background-color: rgba(255, 0, 0, 0.3); }
+
+.showDice1 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/1.png"); }
+
+.showDice2 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/2.png"); }
+
+.showDice3 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/3.png"); }
+
+.showDice4 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/4.png"); }
+
+.showDice5 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/5.png"); }
+
+.showDice6 {
+  height: 70px;
+  width: 70px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-image: url("../../images/6.png"); }
+
+.shadow_dice {
+  background-color: rgba(255, 255, 255, 0.2); }
 
 aside {
   width: 50%; }
