@@ -26,97 +26,29 @@ function roll() {
         //console.log(dice_points_table);
         
         /*** if-s 1-6***/
-        var points_ones = ones(dice_points_table);
-        var points_twos = twos(dice_points_table);
-        var points_threes = threes(dice_points_table);
-        var points_fours = fours(dice_points_table);
-        var points_fives = fives(dice_points_table);
-        var points_sixs = sixs(dice_points_table);
+        var points_ones = one_to_six(dice_points_table, $('#one').find('span'), 1);
+        var points_twos = one_to_six(dice_points_table, $('#two').find('span'), 2);
+        var points_threes = one_to_six(dice_points_table, $('#three').find('span'), 3);
+        var points_fours = one_to_six(dice_points_table, $('#four').find('span'), 4);
+        var points_fives = one_to_six(dice_points_table, $('#five').find('span'), 5);
+        var points_sixs = one_to_six(dice_points_table, $('#six').find('span'), 6);
         
         console.log(points_ones+points_twos+points_threes+points_fours+points_fives+points_sixs);
     });
 }
 
 /***** if-s 1-6*****/
-
-function ones(points_table) {
+function one_to_six(points_table, element, points) {
     var sum = 0;
-    var one_element = $('#one').find('span');
     
     for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 1) {
-            sum += 1;
+        if(points_table[i] === points) {
+            sum += points;
         }    
     }
-    one_element.html(sum);
+    element.html(sum);
     return sum;
 }
-
-function twos(points_table) {
-    var sum = 0;
-    var two_element = $('#two').find('span');
-    
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 2) {
-            sum += 2;
-        }    
-        two_element.html(sum);
-    }
-    return sum;
-}
-
-function threes(points_table) {
-    var sum = 0;
-    var three_element = $('#three').find('span');
-    
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 3) {
-            sum += 3;
-        }    
-        three_element.html(sum);
-    }
-    return sum;
-}
-
-function fours(points_table) {
-    var sum = 0;
-    var four_element = $('#four').find('span');
-    
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 4) {
-            sum += 4;
-        }    
-        four_element.html(sum);
-    }
-    return sum;
-}
-
-function fives(points_table) {
-    var sum = 0;
-    var five_element = $('#five').find('span');
-    
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 5) {
-            sum += 5;
-        }    
-        five_element.html(sum);
-    }
-    return sum;
-}
-
-function sixs(points_table) {
-    var sum = 0;
-    var six_element = $('#six').find('span');
-    
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === 6) {
-            sum += 6;
-        }    
-        six_element.html(sum);
-    }
-    return sum;
-}
-
 
 /***** random dice *****/
 function randomDice(id) {
