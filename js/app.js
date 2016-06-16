@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var dice_points = [];
+    var temp_table = [];
     /*var dice1_points;
     var dice2_points; 
     var dice3_points; 
@@ -11,13 +12,21 @@ $(document).ready(function() {
         
         for(var i=1; i<=5; i++) {
             dice_points[i] = randomDice(i);
+            
+            if(dice_points[i] === 0) {
+               dice_points[i] = temp_table[i];
+            }
+            
         }
+            console.log(dice_points);
+            console.log(temp_table);
+        
         /*dice1_points = randomDice(1);
         dice2_points = randomDice(2);
         dice3_points = randomDice(3);
         dice4_points = randomDice(4);
         dice5_points = randomDice(5);*/
-        console.log(dice_points);
+        temp_table = dice_points.slice(0);
     });
  
     var dice_all = $('.main_dice');
@@ -44,8 +53,9 @@ function randomDice(id) {
 
         var showDice = 'showDice' + points;
         dice.addClass(showDice);
+        return points;
     }
-    return points;
+    else return 0;
 }
 
 function randomNumber() {
