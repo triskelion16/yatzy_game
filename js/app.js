@@ -54,7 +54,7 @@ function one_to_six(points_table, element, points) {
 function randomDice(id) {
     var dice = $('#dice' + id);
     
-    if(!dice.hasClass('shadow_dice')) {
+    if(!dice.hasClass('shadow')) {
         var points = randomNumber();
         dice.removeClass();
 
@@ -71,11 +71,35 @@ function randomNumber() {
 }
 
 /***** add shadow class *****/
-function shadow_class_add(dice_all) {
+function shadow_class_add() {
     var dice = $('.main_dice').find('div');
+    var table_elements = $('table').find('tr');
+    var shadow = 'shadow';
     
+    /* dice */
     dice.on('click', function() {
-        $(this).toggleClass('shadow_dice');
+        $(this).toggleClass(shadow);
         console.log($(this));
     });
+    
+    /* table elements */
+    table_elements.on('mouseenter', function() {
+        if(!$(this).hasClass('without')) {
+           $(this).css('background-color', 'rgba(255,255,255, .2)'); 
+        }
+    });
+    
+    table_elements.on('mouseleave', function() {
+        if(!$(this).hasClass('shadow') || $(this).hasClass('without')) {
+           $(this).css('background-color', 'rgba(0,0,0, 0)'); 
+        }
+    });
+    
+    table_elements.one('click', function() {
+        if(!$(this).hasClass('without')) {
+            $(this).addClass(shadow);
+        }
+    });
 }
+
+

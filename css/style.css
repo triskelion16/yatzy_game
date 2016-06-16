@@ -122,9 +122,6 @@ main {
   border-radius: 10px 10px 10px 10px;
   background-image: url("../../images/6.png"); }
 
-.shadow_dice {
-  background-color: rgba(255, 255, 255, 0.2); }
-
 aside {
   width: 50%; }
   aside table {
@@ -133,11 +130,12 @@ aside {
     background-color: rgba(0, 0, 0, 0.6);
     font-size: 1.2em;
     color: #fff;
-    margin: 2rem 2rem; }
+    margin: 2rem 2rem;
+    /*tr:hover {
+            background-color: rgba(0,0,0, .4);
+        }*/ }
     aside table tbody {
       border-collapse: collapse; }
-    aside table tr:hover {
-      background-color: rgba(0, 0, 0, 0.4); }
   aside td {
     width: 8em;
     text-align: center;
@@ -169,5 +167,14 @@ body {
   display: flex;
   width: 100vw;
   border: 1px solid #000; }
+
+.shadow {
+  background-color: rgba(255, 255, 255, 0.2); }
+
+.without {
+  color: red; }
+
+.bonus_element {
+  color: black !important; }
 
 /*# sourceMappingURL=style.css.map */
