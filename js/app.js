@@ -33,7 +33,7 @@ function roll() {
         var points_fives = one_to_six(dice_points_table, $('#five').find('span'), 5);
         var points_sixs = one_to_six(dice_points_table, $('#six').find('span'), 6);
         
-        console.log(points_ones+points_twos+points_threes+points_fours+points_fives+points_sixs);
+        //console.log(points_ones+points_twos+points_threes+points_fours+points_fives+points_sixs);
     });
 }
 
@@ -41,13 +41,15 @@ function roll() {
 function one_to_six(points_table, element, points) {
     var sum = 0;
     
-    for(var i=1; i<points_table.length; i++) {
-        if(points_table[i] === points) {
-            sum += points;
-        }    
+    if(!element.parent().parent().hasClass('shadow')) {
+        for(var i=1; i<points_table.length; i++) {
+            if(points_table[i] === points) {
+                sum += points;
+            }    
+        }
+        element.html(sum);
     }
-    element.html(sum);
-    return sum;
+    //return sum;
 }
 
 /***** random dice *****/
@@ -98,8 +100,39 @@ function shadow_class_add() {
     table_elements.one('click', function() {
         if(!$(this).hasClass('without')) {
             $(this).addClass(shadow);
+            
+            sum(table_elements);
         }
     });
 }
 
-
+function sum(table_elements) {
+    var sum_all_element = $('#sum_all').find('span');
+    var sum_all = 0;
+    var sum_1_6_element = $('#sum1_6').find('span');
+    var sum_1_6 = 0;
+    
+    table_elements.each(function(index, value) {
+        if($(this).hasClass('shadow')) {
+            var points_text = '';
+            points_text = $(this).find('span').html();
+            var points_int = parseInt(points_text, 10);
+            
+            sum_1_6 += points_int;
+            
+            sum_all = sum_1_6;
+        }
+        
+        //console.log($(this).hasClass('shadow'));
+    });
+    
+    if(sum_1_6  > 62) {
+        sum_all += 50;
+        $('#bonus_element').css('color', '#fff').find('span').html(50);
+    }
+    
+    console.log(sum_1_6);
+    console.log(sum_all);
+    sum_1_6_element.html(sum_1_6);
+    sum_all_element.html(sum_all);
+}

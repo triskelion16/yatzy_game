@@ -174,7 +174,7 @@ body {
 .without {
   color: red; }
 
-.bonus_element {
-  color: black !important; }
+#bonus_element {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */
