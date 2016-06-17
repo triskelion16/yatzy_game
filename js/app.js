@@ -34,10 +34,75 @@ function roll() {
         one_to_six(dice_points_table, $('#six'), 6);
         
         /*** if-s poker table ***/
-        onePair(dice_points_table, $('#onePair'));
-        twoPairs(dice_points_table, $('#twoPair'));
-        
+        onePair(dice_points_table.slice(0), $('#onePair'));
+        twoPairs(dice_points_table.slice(0), $('#twoPair'));
+        same3(dice_points_table.slice(0), $('#same3'));
+        same4(dice_points_table.slice(0), $('#same4'));
+        same5(dice_points_table.slice(0), $('#same5'));
     });
+}
+
+/***** if - 5x *****/
+function same5(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var sort_table = sort(points_table);
+        
+        for(var i=0; i<sort_table.length-4; i++) {
+            if(sort_table[i] === sort_table[i+1] && 
+               sort_table[i] === sort_table[i+2] && 
+               sort_table[i] === sort_table[i+3] && 
+               sort_table[i] === sort_table[i+4]) {
+                    sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2] + sort_table[i+3] + sort_table[i+4];
+            }
+        }
+        
+        console.log(sort_table);
+        
+        span_element.html(sum);
+    }
+}
+
+/***** if - 4x *****/
+function same4(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var sort_table = sort(points_table);
+       
+        for(var i=0; i<sort_table.length-3; i++) {
+            if(sort_table[i] === sort_table[i+1] && 
+               sort_table[i] === sort_table[i+2] && 
+               sort_table[i] === sort_table[i+3]) {
+                    sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2] + sort_table[i+3];
+            }
+        }
+      
+        console.log(sort_table);
+        
+        span_element.html(sum);
+    }
+}
+
+/***** if - 3x *****/
+function same3(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var sort_table = sort(points_table);
+        
+        for(var i=0; i<sort_table.length-2; i++) {
+            if(sort_table[i] === sort_table[i+1] && 
+               sort_table[i] === sort_table[i+2]) {
+                 sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2];
+            }
+        }
+        
+        console.log(sort_table);
+        
+        span_element.html(sum);
+    }
 }
 
 /***** if - two pairs *****/
@@ -48,28 +113,26 @@ function twoPairs(points_table, element) {
         var sort_table = sort(points_table);
         var are = false;
         
-        for(var i=0; i<points_table.length-1; i++) {
-            if(points_table[i] === points_table[i+1]) {
+        for(var i=0; i<sort_table.length-1; i++) {
+            if(sort_table[i] === sort_table[i+1]) {
                 var temp1 = i;
                 var temp2 = i+1;
-                sum =  points_table[i] + points_table[i+1];
+                sum =  sort_table[i] + sort_table[i+1];
             }
         }
         
-        points_table[temp1] = 0;
-        points_table[temp2] = 0;
+        sort_table[temp1] = 0;
+        sort_table[temp2] = 0;
         sort(sort_table);
         
-        for(var i=2; i<points_table.length-1; i++) {
-            if(points_table[i] === points_table[i+1]) {
-                sum += points_table[i] + points_table[i+1];
+        for(var i=2; i<sort_table.length-1; i++) {
+            if(sort_table[i] === sort_table[i+1]) {
+                sum += sort_table[i] + sort_table[i+1];
                 are = true;
             }
         }
         
         if(!are) sum = 0;
-        console.log(sort_table);
-        console.log(sum);
         span_element.html(sum);
     }
 }
@@ -81,9 +144,9 @@ function onePair(points_table, element) {
         var sum = 0;
         var sort_table = sort(points_table);
         
-        for(var i=0; i<points_table.length-1; i++) {
-            if(points_table[i] === points_table[i+1])
-                sum =  points_table[i] + points_table[i+1];
+        for(var i=0; i<sort_table.length-1; i++) {
+            if(sort_table[i] === sort_table[i+1])
+                sum =  sort_table[i] + sort_table[i+1];
         }
         span_element.html(sum);
     }
