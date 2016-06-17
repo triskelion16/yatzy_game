@@ -1,47 +1,68 @@
 $(document).ready(function() {
     
-    roll();
+    game();
  
     shadow_class_add();
     
 });
 
-/***** main roll *****/
-function roll() {
+/***** game *****/
+function game() {
     var dice_points_table = [];
     var temp_table = [];
+    var push = 1;
+    
+    temp_table = roll(dice_points_table, temp_table);
     
     var roll_button = $('.main_button').find('button');
     roll_button.on('click', function() {
         
-        for(var i=0; i<5; i++) {
-            dice_points_table[i] = randomDice(i+1);
-            
-            if(dice_points_table[i] === 0) {
-               dice_points_table[i] = temp_table[i];
-            }
+        temp_table = roll(dice_points_table, temp_table);
+        
+        push++;
+        if(push >=3) {
+            roll_button.off('click');
         }
         
-        temp_table = dice_points_table.slice(0);
-        console.log(dice_points_table);
-        
-        /*** if-s 1-6 table***/
-        one_to_six(dice_points_table, $('#one'), 1);
-        one_to_six(dice_points_table, $('#two'), 2);
-        one_to_six(dice_points_table, $('#three'), 3);
-        one_to_six(dice_points_table, $('#four'), 4);
-        one_to_six(dice_points_table, $('#five'), 5);
-        one_to_six(dice_points_table, $('#six'), 6);
-        
-        /*** if-s poker table ***/
-        onePair(dice_points_table.slice(0), $('#onePair'));
-        twoPairs(dice_points_table.slice(0), $('#twoPair'));
-        same3(dice_points_table.slice(0), $('#same3'));
-        same4(dice_points_table.slice(0), $('#same4'));
-        same5(dice_points_table.slice(0), $('#same5'));
-        stritLow(dice_points_table.slice(0), $('#lowStrit'));
-        stritHigh(dice_points_table.slice(0), $('#highStrit'));
+        console.log(push);
     });
+}
+/***** roll *****/
+function roll(dice_points_table, temp_table) {
+    
+    
+    for(var i=0; i<5; i++) {
+        dice_points_table[i] = randomDice(i+1);
+
+        if(dice_points_table[i] === 0) {
+           dice_points_table[i] = temp_table[i];
+        }
+    }
+
+    console.log(temp_table);
+    console.log(dice_points_table);
+    temp_table = dice_points_table.slice(0);
+    console.log(temp_table);
+    
+
+    /*** if-s 1-6 table***/
+    one_to_six(dice_points_table, $('#one'), 1);
+    one_to_six(dice_points_table, $('#two'), 2);
+    one_to_six(dice_points_table, $('#three'), 3);
+    one_to_six(dice_points_table, $('#four'), 4);
+    one_to_six(dice_points_table, $('#five'), 5);
+    one_to_six(dice_points_table, $('#six'), 6);
+
+    /*** if-s poker table ***/
+    onePair(dice_points_table.slice(0), $('#onePair'));
+    twoPairs(dice_points_table.slice(0), $('#twoPair'));
+    same3(dice_points_table.slice(0), $('#same3'));
+    same4(dice_points_table.slice(0), $('#same4'));
+    same5(dice_points_table.slice(0), $('#same5'));
+    stritLow(dice_points_table.slice(0), $('#lowStrit'));
+    stritHigh(dice_points_table.slice(0), $('#highStrit'));
+    
+    return temp_table;
 }
 
 /***** if - 2-6 *****/
@@ -256,6 +277,7 @@ function shadow_class_add() {
 }
 
 function sum(table_elements) {
+    var dice = $('.main_dice').find('div');
     var sum_all_element = $('#sum_all').find('span');
     var sum_all = 0;
     var sum_1_6_element = $('#sum1_6').find('span');
@@ -284,4 +306,10 @@ function sum(table_elements) {
     //console.log(sum_all);
     sum_1_6_element.html(sum_1_6);
     sum_all_element.html(sum_all);
+    
+    dice.each(function(index, value) {
+        dice.removeClass('shadow');
+    });
+    
+    game();
 }
