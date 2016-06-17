@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic&subset=latin,latin-ext);
 header {
-  background-color: #000;
+  background-color: #222;
   height: 60px; }
   header div {
     position: relative;
@@ -18,42 +18,42 @@ header {
   position: absolute;
   bottom: -26px;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0);
   height: 18px;
   width: 100%;
   border-radius: 0 0 10px 10px;
-  border: 1px solid #fff;
+  border: 1px solid #ddd;
   border-top: none; }
   .hide_rules:hover {
-    background-color: rgba(255, 255, 255, 0.5); }
+    background-color: rgba(255, 255, 255, 0.3); }
   .hide_rules .arrow {
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 16px 50px 0 50px;
-    border-color: #000000 transparent transparent transparent;
+    border-color: #222 transparent transparent transparent;
     top: -10px;
     margin: 0 auto; }
 
 footer {
   background-color: #000;
-  color: #aaa;
+  color: #888;
   padding-top: 7px; }
   footer section {
     justify-content: center; }
   footer span {
     padding: 5px; }
   footer img {
-    background-color: #aaa;
+    background-color: #888;
     border-radius: 50%;
-    border: 1px solid #aaa; }
+    border: 1px solid #888; }
 
 main {
   width: 50%; }
   main .main_dice {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 2rem 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 2.5rem 2rem;
     height: 55vh;
     flex-direction: column;
     align-items: center;
@@ -122,15 +122,13 @@ aside {
   width: 50%; }
   aside table {
     border-collapse: collapse;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
     font-size: 1.2em;
     color: #fff;
-    margin: 2rem 2rem;
+    margin: 2.5rem 2rem 5rem 2rem;
     /*tr:hover {
             background-color: rgba(0,0,0, .4);
         }*/ }
-    aside table tbody {
-      border-collapse: collapse; }
   aside td {
     width: 8em;
     text-align: center;
@@ -140,9 +138,7 @@ aside {
 body {
   margin: 0;
   font-family: 'Open sans', Verdena, sans-serif;
-  background-image: url("../images/bg_main.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; }
+  background-color: black; }
 
 .main_width {
   display: flex;

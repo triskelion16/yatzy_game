@@ -39,7 +39,45 @@ function roll() {
         same3(dice_points_table.slice(0), $('#same3'));
         same4(dice_points_table.slice(0), $('#same4'));
         same5(dice_points_table.slice(0), $('#same5'));
+        stritLow(dice_points_table.slice(0), $('#lowStrit'));
+        stritHigh(dice_points_table.slice(0), $('#highStrit'));
     });
+}
+
+/***** if - 2-6 *****/
+function stritHigh(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var isStrit = true;
+        var sort_table = sort(points_table);
+        
+        for(var i=0; i<sort_table.length-1; i++) {
+            if(sort_table[i] !== sort_table[i+1]-1) isStrit = false;
+        }
+        
+        if(isStrit && sort_table[0] === 2) sum = 20;
+        
+        span_element.html(sum);
+    }
+}
+
+/***** if - 1-5 *****/
+function stritLow(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var isStrit = true;
+        var sort_table = sort(points_table);
+        
+        for(var i=0; i<sort_table.length-1; i++) {
+            if(sort_table[i] !== sort_table[i+1]-1) isStrit = false;
+        }
+        
+        if(isStrit && sort_table[0] === 1) sum = 15;
+        
+        span_element.html(sum);
+    }
 }
 
 /***** if - 5x *****/
@@ -57,9 +95,6 @@ function same5(points_table, element) {
                     sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2] + sort_table[i+3] + sort_table[i+4];
             }
         }
-        
-        console.log(sort_table);
-        
         span_element.html(sum);
     }
 }
@@ -78,9 +113,6 @@ function same4(points_table, element) {
                     sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2] + sort_table[i+3];
             }
         }
-      
-        console.log(sort_table);
-        
         span_element.html(sum);
     }
 }
@@ -98,9 +130,6 @@ function same3(points_table, element) {
                  sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2];
             }
         }
-        
-        console.log(sort_table);
-        
         span_element.html(sum);
     }
 }

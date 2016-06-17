@@ -15,7 +15,8 @@
 body {
     margin: 0;
     font-family: 'Open sans', Verdena, sans-serif;
-    @include background;
+    //@include background;
+    background-color: black;
 }
 
 .main_width {

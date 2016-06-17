@@ -1,5 +1,5 @@
 header {
-    background-color: #000;
+    background-color: #222;
     height: 60px;
     
     div {
@@ -21,15 +21,15 @@ header {
     position: absolute;
     bottom: -26px;
     left: 0;
-    background-color: rgba(0,0,0, .4);
+    background-color: rgba(255,255,255, .0);
     height: 18px;
     width: 100%;
     border-radius: 0 0 10px 10px;
-    border: 1px solid #fff;
+    border: 1px solid #ddd;
     border-top: none;
     
     &:hover {
-        background-color: rgba(255,255,255, .5);
+        background-color: rgba(255,255,255, .3);
     }
     
     .arrow {
@@ -37,7 +37,7 @@ header {
         height: 0;
         border-style: solid;
         border-width: 16px 50px 0 50px;
-        border-color: #000000 transparent transparent transparent;
+        border-color: #222 transparent transparent transparent;
         
         top: -10px;
         margin: 0 auto;
