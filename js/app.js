@@ -10,7 +10,7 @@ $(document).ready(function() {
 function game() {
     var dice_points_table = [];
     var temp_table = [];
-    var push = 1;
+    var push = 2;
     
     temp_table = roll(dice_points_table, temp_table);
     
@@ -19,12 +19,13 @@ function game() {
         
         temp_table = roll(dice_points_table, temp_table);
         
-        push++;
-        if(push >=3) {
-            roll_button.off('click');
-        }
-        
+        push--;
         console.log(push);
+        
+        if(push <= 0) {
+            roll_button.off('click');
+            push = 2;
+        }
     });
 }
 /***** roll *****/
@@ -38,13 +39,8 @@ function roll(dice_points_table, temp_table) {
            dice_points_table[i] = temp_table[i];
         }
     }
-
-    console.log(temp_table);
-    console.log(dice_points_table);
     temp_table = dice_points_table.slice(0);
-    console.log(temp_table);
     
-
     /*** if-s 1-6 table***/
     one_to_six(dice_points_table, $('#one'), 1);
     one_to_six(dice_points_table, $('#two'), 2);
@@ -61,8 +57,23 @@ function roll(dice_points_table, temp_table) {
     same5(dice_points_table.slice(0), $('#same5'));
     stritLow(dice_points_table.slice(0), $('#lowStrit'));
     stritHigh(dice_points_table.slice(0), $('#highStrit'));
+    all(dice_points_table.slice(0), $('#all'));
     
     return temp_table;
+}
+
+/***** sum of all *****/
+function all(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+
+        for(var i=0; i<points_table.length; i++) {
+            sum += points_table[i];
+        }
+
+        span_element.html(sum);
+    }
 }
 
 /***** if - 2-6 *****/
