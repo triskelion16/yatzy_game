@@ -37,7 +37,6 @@ header {
 
 footer {
   background-color: #000;
-  height: 40px;
   color: #aaa;
   padding-top: 7px; }
   footer section {
@@ -53,8 +52,6 @@ main {
   width: 50%; }
   main .main_dice {
     display: flex;
-    border: 2px solid red;
-    border-radius: 10px 10px 10px 10px;
     background-color: rgba(0, 0, 0, 0.6);
     margin: 2rem 2rem;
     height: 55vh;
@@ -68,11 +65,10 @@ main {
       padding: 10px 30px;
       background-color: rgba(255, 255, 255, 0.8);
       color: #000;
-      border: 2px solid red;
-      border-radius: 5px 5px 5px 5px;
       font-size: 1.3rem;
       font-weight: bold;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      border: none; }
 
 .showDice1 {
   height: 70px;
@@ -125,8 +121,6 @@ main {
 aside {
   width: 50%; }
   aside table {
-    border: 2px solid red;
-    border-radius: 10px 10px 10px 10px;
     background-color: rgba(0, 0, 0, 0.6);
     font-size: 1.2em;
     color: #fff;
@@ -144,7 +138,10 @@ aside {
 
 body {
   margin: 0;
-  font-family: 'Open sans', Verdena, sans-serif; }
+  font-family: 'Open sans', Verdena, sans-serif;
+  background-image: url("../images/bg_main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .main_width {
   display: flex;
@@ -161,12 +158,8 @@ body {
   box-sizing: border-box; }
 
 .main_container {
-  background-image: url("../images/bg_main.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
-  width: 100vw;
-  border: 1px solid #000; }
+  width: 100vw; }
 
 .shadow {
   background-color: rgba(255, 255, 255, 0.2); }

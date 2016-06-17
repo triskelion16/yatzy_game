@@ -3,8 +3,8 @@ main {
     
     .main_dice {
         display: flex;
-        border: 2px solid red;
-        border-radius: 10px 10px 10px 10px;
+        //border: 2px solid red;
+        //border-radius: 10px 10px 10px 10px;
         background-color: rgba(0,0,0, .6);
         margin: 2rem 2rem;
         height: 55vh;
@@ -22,11 +22,12 @@ main {
             padding: 10px 30px;
             background-color: rgba(255,255,255, .8);
             color: #000;
-            border: 2px solid red;
-            border-radius: 5px 5px 5px 5px;
+            //border: 2px solid red;
+            //border-radius: 5px 5px 5px 5px;
             font-size: 1.3rem;
             font-weight: bold;
             text-transform: uppercase;
+            border: none;
         }
     }
 }

@@ -175,9 +175,9 @@ function sum(table_elements) {
             points_text = $(this).find('span').html();
             var points_int = parseInt(points_text, 10);
             
-            sum_1_6 += points_int;
+            if($(this).hasClass('upTable')) sum_1_6 += points_int;
             
-            sum_all = sum_1_6;
+            sum_all += points_int;
         }
         
         //console.log($(this).hasClass('shadow'));
