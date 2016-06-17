@@ -14,8 +14,8 @@ function roll() {
     var roll_button = $('.main_button').find('button');
     roll_button.on('click', function() {
         
-        for(var i=1; i<=5; i++) {
-            dice_points_table[i] = randomDice(i);
+        for(var i=0; i<5; i++) {
+            dice_points_table[i] = randomDice(i+1);
             
             if(dice_points_table[i] === 0) {
                dice_points_table[i] = temp_table[i];
@@ -23,33 +23,90 @@ function roll() {
         }
         
         temp_table = dice_points_table.slice(0);
-        //console.log(dice_points_table);
+        console.log(dice_points_table);
         
-        /*** if-s 1-6***/
-        var points_ones = one_to_six(dice_points_table, $('#one').find('span'), 1);
-        var points_twos = one_to_six(dice_points_table, $('#two').find('span'), 2);
-        var points_threes = one_to_six(dice_points_table, $('#three').find('span'), 3);
-        var points_fours = one_to_six(dice_points_table, $('#four').find('span'), 4);
-        var points_fives = one_to_six(dice_points_table, $('#five').find('span'), 5);
-        var points_sixs = one_to_six(dice_points_table, $('#six').find('span'), 6);
+        /*** if-s 1-6 table***/
+        one_to_six(dice_points_table, $('#one'), 1);
+        one_to_six(dice_points_table, $('#two'), 2);
+        one_to_six(dice_points_table, $('#three'), 3);
+        one_to_six(dice_points_table, $('#four'), 4);
+        one_to_six(dice_points_table, $('#five'), 5);
+        one_to_six(dice_points_table, $('#six'), 6);
         
-        //console.log(points_ones+points_twos+points_threes+points_fours+points_fives+points_sixs);
+        /*** if-s poker table ***/
+        onePair(dice_points_table, $('#onePair'));
+        twoPairs(dice_points_table, $('#twoPair'));
+        
     });
+}
+
+/***** if - two pairs *****/
+function twoPairs(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var sort_table = sort(points_table);
+        var are = false;
+        
+        for(var i=0; i<points_table.length-1; i++) {
+            if(points_table[i] === points_table[i+1]) {
+                var temp1 = i;
+                var temp2 = i+1;
+                sum =  points_table[i] + points_table[i+1];
+            }
+        }
+        
+        points_table[temp1] = 0;
+        points_table[temp2] = 0;
+        sort(sort_table);
+        
+        for(var i=2; i<points_table.length-1; i++) {
+            if(points_table[i] === points_table[i+1]) {
+                sum += points_table[i] + points_table[i+1];
+                are = true;
+            }
+        }
+        
+        if(!are) sum = 0;
+        console.log(sort_table);
+        console.log(sum);
+        span_element.html(sum);
+    }
+}
+
+/***** if - one pair *****/
+function onePair(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var sort_table = sort(points_table);
+        
+        for(var i=0; i<points_table.length-1; i++) {
+            if(points_table[i] === points_table[i+1])
+                sum =  points_table[i] + points_table[i+1];
+        }
+        span_element.html(sum);
+    }
+}
+
+/***** sort function *****/
+function sort(table) {
+    return table.sort(function(a, b){return a-b});
 }
 
 /***** if-s 1-6*****/
 function one_to_six(points_table, element, points) {
+    var span_element = element.find('span');
     var sum = 0;
     
-    if(!element.parent().parent().hasClass('shadow')) {
-        for(var i=1; i<points_table.length; i++) {
+    if(!element.hasClass('shadow')) {
+        for(var i=0; i<points_table.length; i++) {
             if(points_table[i] === points) {
                 sum += points;
             }    
         }
-        element.html(sum);
+        span_element.html(sum);
     }
-    //return sum;
 }
 
 /***** random dice *****/
@@ -131,8 +188,8 @@ function sum(table_elements) {
         $('#bonus_element').css('color', '#fff').find('span').html(50);
     }
     
-    console.log(sum_1_6);
-    console.log(sum_all);
+    //console.log(sum_1_6);
+    //console.log(sum_all);
     sum_1_6_element.html(sum_1_6);
     sum_all_element.html(sum_all);
 }
