@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    alert();
+    //alert();
     
     game();
  
@@ -25,7 +25,7 @@ function game() {
         //console.log(push);
         
         if(push <= 0) {
-            //roll_button.off('click');
+            roll_button.off('click');
             push = 2;
         }
     });
@@ -365,6 +365,6 @@ function sum(table_elements) {
     game();
 }
 
-function alert() {
+/*function alert() {
     alert('Celem gry');
-}
+}*/
