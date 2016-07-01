@@ -1,5 +1,7 @@
 $(document).ready(function() {
     
+    alert();
+    
     game();
  
     shadow_class_add();
@@ -20,10 +22,10 @@ function game() {
         temp_table = roll(dice_points_table, temp_table);
         
         push--;
-        console.log(push);
+        //console.log(push);
         
         if(push <= 0) {
-            roll_button.off('click');
+            //roll_button.off('click');
             push = 2;
         }
     });
@@ -58,8 +60,46 @@ function roll(dice_points_table, temp_table) {
     stritLow(dice_points_table.slice(0), $('#lowStrit'));
     stritHigh(dice_points_table.slice(0), $('#highStrit'));
     all(dice_points_table.slice(0), $('#all'));
+    full(dice_points_table.slice(0), $('#full'));
     
     return temp_table;
+}
+
+/***** full *****/
+function full(points_table, element) {
+    if(!element.hasClass('shadow')) {
+        var span_element = element.find('span');
+        var sum = 0;
+        var temp = 0;
+        var same3 = false;
+        var sort_table = sort(points_table);
+        
+        console.log(sort_table);
+        
+        for(var i=0; i<sort_table.length-2; i++) {
+            if(sort_table[i] === sort_table[i+1] && 
+               sort_table[i] === sort_table[i+2]) {
+                 sum =  sort_table[i] + sort_table[i+1] + sort_table[i+2];
+                 temp = i;
+                console.log(temp);
+                same3 = true;
+            }
+            console.log(i);
+        }
+        
+        if(same3) {
+            sort_table[i] = 0;
+            sort_table[i+1] = 0;
+            sort_table[i+2] = 0;
+            sort(sort_table);
+        }
+        
+        console.log(sort_table);
+        
+        
+        
+        span_element.html(sum);
+    }
 }
 
 /***** sum of all *****/
@@ -323,4 +363,8 @@ function sum(table_elements) {
     });
     
     game();
+}
+
+function alert() {
+    alert('Celem gry');
 }
